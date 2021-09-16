@@ -12,14 +12,44 @@
       <h1 class="title">To-Do List</h1>
       <div class="task-container">
         <h2 class="sort">sort</h2>
-        <form class="form">
+        <ul class="task-list"></ul>
+        <form class="form" name="add-task" >
+          <button id="add-task" type="button">Add Task</button>
           <label for="new-task"></label>
-          <input type="text" placeholder="Next task" id="new-task" />
+          <input id="new-task" type="text" required placeholder="Next task" id="new-task" />
         </form>
       </div>
     </div>
     <script>
-      const container = document.querySelector('.task-container');
+      const list = document.querySelector(".task-list");
+      const form = document.querySelector(".form")
+      const button = document.getElementById("add-task");
+      const input = document.getElementById("new-task");
+
+
+
+      function addTask (event){
+        const newTask = document.createElement("li");
+        const deleteButton = document.createElement("button");
+
+        newTask.innerHTML = input.value;
+        newTask.id = input.value;
+
+        deleteButton.innerHTML = "Delete";
+        deleteButton.class = "delete-task";
+
+        list.appendChild(newTask);
+        list.appendChild(deleteButton);
+        form.reset();
+      }
+
+
+      button.addEventListener('click', addTask);
+      input.addEventListener('keydown', function(e){
+        if(e.code === "Enter") addTask();
+      });
+
+
     </script>
   </body>
 </html>

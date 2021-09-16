@@ -12,18 +12,24 @@ border: 5px solid black;
 }
 
 .form {
-  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 
-input[type="text"] {
+#new-task {
   position: relative;
-  display: block;
-  margin : 10px auto;
+  margin : 10px 10px;
   padding: 10px;
   border: 0;
   border-bottom:1px solid #eee;
   box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
   border-radius:10px;
-  width: 60%;
+  width: 70%;
   text-align: center;
+}
+
+#add-task {
+
 }
